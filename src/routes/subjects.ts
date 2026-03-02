@@ -31,7 +31,6 @@ router.get("/", async (req, res) => {
         if(department){
             const deptPattern = `%${String(department).replace(/[%_]/g, '\\$&')}%`;
             filterConditions.push(like(departments.name, deptPattern));
-
         }
 
         // Combine all filters using AND if any exist
