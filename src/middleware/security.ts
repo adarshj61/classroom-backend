@@ -3,7 +3,6 @@ import type { ArcjetNodeRequest } from "@arcjet/node";
 import type { NextFunction, Request, Response } from "express";
 
 import aj from "../config/arcjet.js";
-
 const securityMiddleware = async (
     req: Request,
     res: Response,
@@ -13,7 +12,6 @@ const securityMiddleware = async (
     if (process.env.NODE_ENV === "test") {
         return next();
     }
-
     try {
         const role: RateLimitRole = req.user?.role ?? "guest";
 
@@ -86,5 +84,4 @@ const securityMiddleware = async (
         });
     }
 };
-
 export default securityMiddleware;
