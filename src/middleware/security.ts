@@ -13,6 +13,7 @@ const securityMiddleware = async (
         return next();
     }
     try {
+        
         const role: RateLimitRole = req.user?.role ?? "guest";
 
         let limit: number;
